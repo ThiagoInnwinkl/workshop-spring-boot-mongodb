@@ -59,4 +59,13 @@ public class UserResource {
 		service.delete(id);
 		return ResponseEntity.noContent().build(); 
 	}
+	
+	//NÃO ESTÁ ATULIZANDO PARA MARIA DO CARMO E MARIA2@GMAIL.
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody UserDTO objDto, @PathVariable String id) {
+		User obj = service.fromDTO(objDto);
+		obj.setId(id);
+		obj = service.update(obj);
+		return ResponseEntity.noContent().build();
+	}
 }
