@@ -33,12 +33,13 @@ public class UserService {
 
 	public User update(User obj) {
 		User newObj = findById(obj.getId());
-		updateData(newObj, obj);  
+		updateData(newObj, obj);
 		return repo.save(newObj);
 	}
 
 	private void updateData(User newObj, User obj) {
-		
+		newObj.setNome(obj.getNome());
+		newObj.setEmail(obj.getEmail());
 	}
 
 	public User insert(User obj) {

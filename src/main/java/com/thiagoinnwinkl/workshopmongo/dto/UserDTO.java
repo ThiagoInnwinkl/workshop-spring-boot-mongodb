@@ -5,8 +5,8 @@ import java.io.Serializable;
 import com.thiagoinnwinkl.workshopmongo.domain.User;
 
 public class UserDTO implements Serializable{
-
 	private static final long serialVersionUID = 1L;
+	
 	private String id;
 	private String nome;
 	private String email;

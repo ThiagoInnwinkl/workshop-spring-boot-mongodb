@@ -32,13 +32,6 @@ public class UserResource {
 		List<UserDTO> listDto = list.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);
 	}
-
-	/*Não está retornando a mensagem de erro: Objeto não encontrado
-	 * @RequestMapping(value="/{id}", method = RequestMethod.GET)
-	public User findById(String id) {
-		Optional<User> obj = repo.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado")); 
-	}*/
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<UserDTO> findById(@PathVariable String id) {
@@ -60,7 +53,6 @@ public class UserResource {
 		return ResponseEntity.noContent().build(); 
 	}
 	
-	//NÃO ESTÁ ATULIZANDO PARA MARIA DO CARMO E MARIA2@GMAIL.
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Void> update(@RequestBody UserDTO objDto, @PathVariable String id) {
 		User obj = service.fromDTO(objDto);
